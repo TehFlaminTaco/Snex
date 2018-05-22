@@ -1,0 +1,31 @@
+// DM Environment file for Saucage.dme.
+// All manual changes should be made outside the BEGIN_ and END_ blocks.
+// New source code should be placed in .dm files: choose File/New --> Code File.
+
+// BEGIN_INTERNALS
+// END_INTERNALS
+
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+#define FILE_DIR "icons"
+#define FILE_DIR "icons/turf"
+// END_FILE_DIR
+
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+
+// BEGIN_INCLUDE
+#include "_defines.dm"
+#include "Saucage.dm"
+#include "map.dmm"
+#include "code\controller.dm"
+#include "code\pellet.dm"
+#include "code\spawnpoint.dm"
+#include "code\turf.dm"
+#include "code\powered\elevator.dm"
+#include "code\powered\powered.dm"
+#include "code\powered\powered_controller.dm"
+#include "code\sausage\sausmob.dm"
+#include "code\sausage\skins.dm"
+// END_INCLUDE
+
