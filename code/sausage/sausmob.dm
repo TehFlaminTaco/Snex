@@ -185,7 +185,6 @@
 		update_icon()
 		..(loc,1,src)
 		oldloc = loc
-		Life()
 
 	can_push()
 		if(did_push)
@@ -212,9 +211,6 @@
 		check_actions()
 		check_conveyers()
 		oldloc = loc
-
-		spawn(2)
-			Life()
 
 	Move(tloc,dir,stepx,stepy)
 		// Butt Possession (Important)

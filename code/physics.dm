@@ -22,7 +22,7 @@
 		return 0
 
 	proc/should_fall()
-		return can_push(world,0,-1)
+		return can_push(null,0,-1)
 
 	proc/make_fall()
-		return push(world,0,-1)
+		return push(null,0,-1)
