@@ -1,0 +1,9 @@
+{
+	"user":{
+		"color" : [0,255,0]
+	},
+	"host":{
+		"color" : [255,0,0],
+		"perms" : ["DEBUG", "FUN"]
+	}
+}

@@ -149,7 +149,7 @@
 		return T
 
 /obj/powered/gate/xor
-	icon_state = "or"
+	icon_state = "xor"
 
 	action()
 		var/T = 0

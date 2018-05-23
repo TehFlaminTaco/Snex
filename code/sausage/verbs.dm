@@ -6,12 +6,6 @@
 			tail.shrink()
 			update_icon()
 
-	possess(var/mob/sausage/head/H)
-		set name = "Possess"
-		set category = "Debug"
-		if(!H.client)
-			H.client = usr.client
-
 	say(var/txt as text)
 		set name = "Say"
 		set category = "IC"

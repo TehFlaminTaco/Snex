@@ -12,7 +12,6 @@
 	icon = 'icons/mob/sausage.dmi'
 	icon_state = "sausagetiny"
 	density = 0
-	animate_movement = NO_STEPS
 	anchored = 0
 	var/index = 1
 	var/mob/sausage/head/face
@@ -177,7 +176,6 @@
 	name = "Sausage"
 	var/next_move = 0
 	var/turf/oldloc
-	var/did_push = 0
 	var/len = 1
 	gravity = 1
 
@@ -207,12 +205,12 @@
 		return 0
 
 	Life()
-		did_push = 0
 		check_actions()
-		check_conveyers()
 		oldloc = loc
 
 	Move(tloc,dir,stepx,stepy)
+		if(!(dir in adjecent))
+			return
 		// Butt Possession (Important)
 		/*for(var/mob/sausage/S in tloc)
 			if(S.get_face()!=src && !istype(S.tail) && !S.get_face().client)

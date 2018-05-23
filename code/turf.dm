@@ -48,6 +48,10 @@ turf/climable
 
 turf/climable/convey
 	icon_state = "convey"
+	process = 1
+	update()
+		for(var/atom/movable/M in src)
+			M.push(src,dir_x(dir),dir_y(dir))
 
 turf/wormulator
 	icon = 'icons/turf/wormulator.dmi'

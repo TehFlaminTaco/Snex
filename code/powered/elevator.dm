@@ -18,7 +18,7 @@
 			return
 
 		for(var/atom/movable/M in T)
-			if(!M.push(src,dir_x(dir),dir_y(dir)))
+			if((istype(M,/mob/sausage)||M.gravity) && !M.push(src,dir_x(dir),dir_y(dir)))
 				return
 
 		if(T.dense())

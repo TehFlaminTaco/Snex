@@ -2,6 +2,8 @@
 world
 
 	New()
+		setup_perms()
+		setup_ranks()
 		spawn(1)
 			controller_loop()
 		..()
