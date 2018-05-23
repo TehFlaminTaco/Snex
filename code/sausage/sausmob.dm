@@ -9,10 +9,11 @@
 	name = "Sausage"
 	var/mob/sausage/head // Refers to the next segment closest to the head. Not the head itself.
 	var/mob/sausage/tail // Refers to the next segment closest to the tail.
-	icon = 'icons/sausage.dmi'
+	icon = 'icons/mob/sausage.dmi'
 	icon_state = "sausagetiny"
 	density = 0
 	animate_movement = NO_STEPS
+	anchored = 0
 	var/index = 1
 	var/mob/sausage/head/face
 	var/obj/pellet/spawner
@@ -49,7 +50,7 @@
 				return 0
 		return 1
 
-	proc/should_fall()
+	should_fall()
 		if(istype(loc,/turf/climable))
 			return 0
 		var/turf/T = locate(x, y-1, z)
@@ -62,7 +63,7 @@
 			return tail.should_fall()
 		return 1
 
-	proc/make_fall(var/ovr=0)
+	make_fall(var/ovr=0)
 		if(ovr||should_fall())
 			y -= 1
 			if(istype(tail))
@@ -85,42 +86,34 @@
 
 	proc/check_conveyers()
 		if(istype(loc, /turf/climable/convey))
-			if(push(dir_x(loc.dir), dir_y(loc.dir)))
+			if(push(loc,dir_x(loc.dir), dir_y(loc.dir)))
 				return 1
 		if(istype(tail))
 			return tail.check_conveyers()
 
-	proc/can_push(var/xoff=0,var/yoff=0,var/mdir=0)
+	can_push(var/atom/pusher,var/xoff=0,var/yoff=0,var/mdir=0)
 		var/turf/T = locate(x+xoff, y+yoff, z)
 		if(T.dense())
 			return 0
 		for(var/mob/sausage/w in T)
 			if(w.get_face()!=get_face())
 				return 0
-		if((mdir==0||mdir==1)&&istype(head)&&!head.can_push(xoff,yoff,1))
+		if((mdir==0||mdir==1)&&istype(head)&&!head.can_push(pusher,xoff,yoff,1))
 			return 0
-		if((mdir==0||mdir==-1)&&istype(tail)&&!tail.can_push(xoff,yoff,-1))
+		if((mdir==0||mdir==-1)&&istype(tail)&&!tail.can_push(pusher,xoff,yoff,-1))
 			return 0
 		return 1
 
-	proc/push(var/xoff=0,var/yoff=0,var/ovr=0,var/mdir=0)
-		if(ovr||can_push(xoff,yoff))
+	push(var/atom/pusher,var/xoff=0,var/yoff=0,var/ovr=0,var/mdir=0)
+		if(ovr||can_push(pusher,xoff,yoff))
 			x += xoff
 			y += yoff
 			if((mdir==0||mdir==1)&&istype(head))
-				head.push(xoff,yoff,1,1)
+				head.push(pusher,xoff,yoff,1,1)
 			if((mdir==0||mdir==-1)&&istype(tail))
-				tail.push(xoff,yoff,1,-1)
+				tail.push(pusher,xoff,yoff,1,-1)
 			return 1
 		return 0
-
-
-	proc/can_eat(var/obj/pellet/P)
-		if(spawner == P)
-			return 0
-		if(istype(tail))
-			return tail.can_eat(P)
-		return 1
 
 	proc/grow(var/obj/pellet/P)
 		if(spawner == P)
@@ -186,11 +179,9 @@
 	var/turf/oldloc
 	var/did_push = 0
 	var/len = 1
-
+	gravity = 1
 
 	New()
-		if(spawns.len)
-			loc = pick(spawns)
 		update_icon()
 		..(loc,1,src)
 		oldloc = loc
@@ -201,8 +192,8 @@
 			return 0
 		return ..()
 
-	push(xoff,yoff)
-		try_eat(locate(x+xoff,y+yoff,z))
+	push(pusher,xoff,yoff)
+		//try_eat(locate(x+xoff,y+yoff,z))
 		. = ..()
 		if(.)
 			did_push = 1
@@ -216,38 +207,19 @@
 			return ..()
 		return 0
 
-	verb/possess(var/mob/sausage/head/H)
-		H.client = usr.client
-
-	proc/Life()
-		make_fall()
+	Life()
 		did_push = 0
 		check_actions()
 		check_conveyers()
-		//if(client && oldloc != loc)
-			//client.pixel_x=(oldloc.x-x)*ICON_SIZE
-			//client.pixel_y=(oldloc.y-y)*ICON_SIZE
-			//animate(client,pixel_x=0,pixel_y=0,2)
 		oldloc = loc
 
 		spawn(2)
 			Life()
 
-	proc/try_eat(var/atom/tloc)
-		for(var/obj/pellet/P in tloc)
-			if(can_eat(P))
-				if(P.eat())
-					grow(P)
-
-	verb/delengthen()
-		if(istype(tail))
-			tail.shrink()
-			update_icon()
-
-
 	Move(tloc,dir,stepx,stepy)
-		for(var/mob/sausage/S in tloc)
-			if(S.get_face()!=src && !istype(S.tail))
+		// Butt Possession (Important)
+		/*for(var/mob/sausage/S in tloc)
+			if(S.get_face()!=src && !istype(S.tail) && !S.get_face().client)
 				var/L = loc
 				loc = S
 				grow(new/obj/pellet(src))
@@ -263,13 +235,18 @@
 					if(!istype(f.client))
 						f.client = client
 				del(src)
-				return
+				return*/
+
 		if(world.time>=next_move)
-			try_eat(tloc)
+			next_move = world.time + 2
+
+			for(var/atom/movable/A in tloc)
+				if(istype(A,/mob/sausage))
+					var/mob/sausage/S = A
+					if(S.get_face()==src)
+						continue;
+				A.push(src,dir_x(dir),dir_y(dir))
+
 			if(!istype(tail))
 				src.dir = dir
 			force_move(tloc)
-			next_move = world.time + 2
-			//if(client && oldloc != loc)
-				//client.pixel_x=(oldloc.x-x)*ICON_SIZE
-				//client.pixel_y=(oldloc.y-y)*ICON_SIZE

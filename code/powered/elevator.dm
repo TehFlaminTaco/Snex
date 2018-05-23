@@ -14,14 +14,15 @@
 			if(E.dir == dir)
 				E.extend()
 				return
-		if(T.dense())
-			return
 		if(holder.length == holder.max_length)
 			return
 
-		for(var/mob/sausage/W in T)
-			if(!W.push(dir_x(dir),dir_y(dir)))
+		for(var/atom/movable/M in T)
+			if(!M.push(src,dir_x(dir),dir_y(dir)))
 				return
+
+		if(T.dense())
+			return
 		holder.length++
 		var/obj/powered/elevator/P = new/obj/powered/elevator/pipe(T)
 		P.dir = dir

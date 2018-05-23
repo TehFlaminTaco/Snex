@@ -28,7 +28,7 @@
 		if(dir&EAST && dir&WEST)
 			dir = EAST
 		for(var/obj/powered/P in get_step(loc,src_dir))
-			power = P.power
+			power += P.power
 		for(var/obj/powered/P in get_step(loc,tar_dir))
 			if(!istype(P,/obj/powered/gate))
 				P.power = power
@@ -64,8 +64,25 @@
 
 	update()
 		power = 0
-		for(var/mob/sausage/S in loc)
-			power = 1
+		for(var/atom/movable/M in loc)
+			if(!M.anchored)
+				power = 1
+				return
+
+/obj/powered/button_once
+	icon_state = "button"
+	New()
+		spawn(1)
+			for(var/D in adjecent)
+				for(var/obj/powered/wire_exploder/WE in get_step(src.loc, D))
+					WE.Explode(inv_adj(D))
+
+	update()
+		if(power)
+			return
+		for(var/atom/movable/M in loc)
+			if(!M.anchored)
+				power = 1
 
 /obj/powered/button_toggle
 	icon_state = "button"
@@ -78,10 +95,11 @@
 
 	update()
 		var/found_worm = 0
-		for(var/mob/sausage/S in loc)
-			found_worm = 1
-			if(!had_worm)
-				power = !power
+		for(var/atom/movable/M in loc)
+			if(!M.anchored)
+				found_worm = 1
+				if(!had_worm)
+					power = !power
 		had_worm = found_worm
 
 /obj/powered/gate

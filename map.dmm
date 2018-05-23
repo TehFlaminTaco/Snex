@@ -1,15 +1,18 @@
 "a" = (/turf/background,/area)
 "b" = (/turf/wall,/area)
-"c" = (/obj/powered/button,/turf/background,/area)
-"d" = (/obj/spawn_point,/turf/background,/area)
+"d" = (/obj/powered/gate/xor,/turf/wall,/area)
 "e" = (/turf/climable/convey{dir = 8; name = "WEST"},/area)
 "f" = (/turf/climable/convey{dir = 1; name = "NORTH"},/area)
 "g" = (/turf/climable,/area)
 "h" = (/turf/climable/convey,/area)
 "i" = (/obj/pellet,/turf/background,/area)
 "j" = (/turf/wormulator,/area)
-"k" = (/obj/powered/wire_exploder,/turf/wall,/area)
-"l" = (/obj/powered/elevator{dir = 1},/turf/background,/area)
+"k" = (/obj/spawn_point,/turf/background,/area)
+"l" = (/obj/powered/button,/turf/background,/area)
+"m" = (/obj/powered/wire_exploder,/turf/wall,/area)
+"n" = (/mob/sausage/head,/turf/background,/area)
+"o" = (/obj/powered/elevator{dir = 4},/turf/background,/area)
+"p" = (/obj/cube,/turf/background,/area)
 
 (1,1,1) = {"
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
@@ -22,23 +25,23 @@ bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbaaaaaaab
-baaaaaaaaaaaaaaaaaaabaaaaaaab
-baaaaaaaaaaaaaaaaaaabaaaaaaab
-baaaaaaaaaaaaaaaaaaabaaaiiaab
-baaaaaaaaaaaaaaaaaaabaaaiiaab
-baaaadaaaaaaaaaaaaaaacaaiiaab
-bbbbbbbbbbbbbbbbbbbblkbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbaaaaaaaaaaaaaaaabbbbbb
+bbbbbbbaaaaaaaaaaaaaaaabbbbbb
+bbbbbbbaaaaaaaaaaaaaaaabbbbbb
+bbbbbbbapaakkkkkkkkaaaabbbbbb
+bbbbbbbaaaakkkkkkkkanaabbbbbb
+bbbbbbbaaaakkkkkkkknanabbbbbb
+bbbbbbbaaiakkkkkkkkaaaabbbbbb
+bbbbbbbaaaikkkkkkkkaaaabbbbbb
+bbbbbbbaaiakkkkkkkkaaaabbbbbb
+bbbbbbbalaikkkkkkkkaalabbbbbb
+bbbbbbbbmbbbbbbbbbbbbmbbbbbbb
+bbbbbbbbdmmmmmmmmmmmmmbbbbbbb
+bbbbbbmmmbbbbbbbbbbbbbbbbbbbb
+bbbbbbmbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbmoaaaaaaaaaaaaaaabbbbbb
+bbbbbbmoaaaaaapaaaaaaaabbbbbb
+bbbbbbmoaaaaaanaaaaaaaabbbbbb
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 "}
@@ -48,23 +51,23 @@ bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 baaaaaaaaaaaaaaagaagaajjjjjjb
 baaagaaagaaaghaahaahabbbbbbbb
 baaaaaaaaaaaaagaaaaaabbbbbbbb
-baabaaaaaaaaaaaaaaaaabbbbbbbb
+baaaaaaaaaaaaaaaaaaaabbbbbbbb
 baaaaaaaaaaaaaaaaaaaabbbbbbbb
 bbaaaaaaaaaaaaaaaaaaabbbbbbbb
 baaaaaaaaaaaaaaaaaaaabbbbbbbb
-baabaaaaaaaaaaaaaaaaabbbbbbbb
+baaaaaaaaaaaaaaaaaaaabbbbbbbb
 baaaaaaaaaaaaaaaaaaaabbbbbbbb
 bbaaaaaaaaaaaaaaaaaaabbbbbbbb
 baaaaaaaaaaaaaaaaaaaabbbbbbbb
-baabaaaaaaaaaaaaaaaaabbbbbbbb
+baaaaaaaaaaaaaaaaaaaabbbbbbbb
 baaaaaaaaaaaaaaaaaaaabbbbbbbb
 bbaaaaaaaaaaaaaaaaaaabbbbbbbb
 baaaaaaaaaaaaaaaaaaaabbbbbbbb
-baabaaaaaaaaaaaaaaaaabbbbbbbb
+baaaaaaaaaaaaaaaaaaaabbbbbbbb
 baaaaaaaaaaaaaaaaaaaaeeeeeeeb
 bbaaaaaaaaaaaaaaaaaaabbbbbbfb
-baaaaaaaaaaaaaaaaaaaabaaaaaab
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+olaaaaaaaaaaaaaaaaaaabaaaaaab
+mmbbbbbbbbbbbbbbbbbbbbbbbbbbb
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbb

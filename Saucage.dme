@@ -7,8 +7,6 @@
 
 // BEGIN_FILE_DIR
 #define FILE_DIR .
-#define FILE_DIR "icons"
-#define FILE_DIR "icons/turf"
 // END_FILE_DIR
 
 // BEGIN_PREFERENCES
@@ -16,16 +14,22 @@
 
 // BEGIN_INCLUDE
 #include "_defines.dm"
+#include "cube.dm"
 #include "Saucage.dm"
 #include "map.dmm"
-#include "code\controller.dm"
 #include "code\pellet.dm"
+#include "code\physics.dm"
 #include "code\spawnpoint.dm"
 #include "code\turf.dm"
+#include "code\world.dm"
+#include "code\controller\controller.dm"
+#include "code\controller\mob.dm"
+#include "code\controller\physics.dm"
+#include "code\controller\powered.dm"
 #include "code\powered\elevator.dm"
 #include "code\powered\powered.dm"
-#include "code\powered\powered_controller.dm"
 #include "code\sausage\sausmob.dm"
 #include "code\sausage\skins.dm"
+#include "code\sausage\verbs.dm"
 // END_INCLUDE
 
