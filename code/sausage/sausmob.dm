@@ -124,7 +124,8 @@
 			tail.head = src
 			tail.spawner = P
 			tail.skin = skin
-			get_face().len++
+			face = get_face()
+			face.len++
 			return 1
 
 	proc/shrink()
