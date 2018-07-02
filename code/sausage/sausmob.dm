@@ -167,7 +167,7 @@
 
 		skin_ovrl = image(icon, icon_state = "skin[typ]")
 		if(istype(head))
-			skin_ovrl.color = head.skin.get_point(index-1, f.len, src)
+			skin_ovrl.color = head.skin.get_point(index, f.len, src)
 		else
 			skin_ovrl.color = skin.get_point(index-1, f.len, src)
 		overlays += skin_ovrl
@@ -213,8 +213,8 @@
 		if(!(dir in adjecent))
 			return
 		// Butt Possession (Important)
-		/*for(var/mob/sausage/S in tloc)
-			if(S.get_face()!=src && !istype(S.tail) && !S.get_face().client)
+		for(var/mob/sausage/S in tloc)
+			if(S.get_face()!=src && !istype(S.tail) && !S.face.client)
 				var/L = loc
 				loc = S
 				grow(new/obj/pellet(src))
@@ -230,7 +230,7 @@
 					if(!istype(f.client))
 						f.client = client
 				del(src)
-				return*/
+				return
 
 		if(world.time>=next_move)
 			next_move = world.time + 2

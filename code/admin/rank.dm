@@ -16,3 +16,11 @@
 	set category = "OOC"
 
 	world << "<font color=[rank.color]><b>OOC: [src]: [html_decode(txt)]</b></font>"
+
+/client/verb/who()
+	usr << "<b>Current Players:</b>"
+	var count = 0
+	for (var/client/C in GLOB.clients)
+		usr << C.key
+		count ++
+	usr << "<b>Total Players: [count]</b>"

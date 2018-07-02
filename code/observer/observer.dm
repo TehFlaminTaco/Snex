@@ -7,6 +7,7 @@
 
 	if(mob.on_ghost())
 		var/mob/observer/G = new()
+		G.name = mob.name
 		G.loc = mob.loc
 		G.body = mob
 		G.client = src

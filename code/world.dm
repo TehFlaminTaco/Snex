@@ -1,6 +1,9 @@
+datum/globals
+	var/list/clients = list()
+
+var/datum/globals/GLOB = new /datum/globals()
 
 world
-
 	New()
 		setup_perms()
 		setup_ranks()
