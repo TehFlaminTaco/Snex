@@ -4,6 +4,6 @@
 	},
 	"host":{
 		"color" : [255,0,0],
-		"perms" : ["DEBUG", "FUN"]
+		"perms" : ["DEBUG","DEBUG", "FUN", "VAREDIT"]
 	}
 }

@@ -1,5 +1,5 @@
 
-#define INVIS_GOD 90
+#define INVIS_GHOST 50
 
 #define NORTH 1
 #define NORTHEAST 5

@@ -9,10 +9,10 @@
 
 	proc/remove(var/client/C)
 		for(var/permission/P in perms)
-			C.verbs += P.verbs
+			C.verbs -= P.verbs
 
 /client/verb/ooc(var/txt as text)
 	set name = "OOC"
 	set category = "OOC"
 
-	world << "<font color=[rank.color]><b>[src]: [html_decode(txt)]</b></font>"
+	world << "<font color=[rank.color]><b>OOC: [src]: [html_decode(txt)]</b></font>"

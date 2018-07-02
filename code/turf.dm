@@ -17,7 +17,7 @@ turf
 turf/wall
 	density = 1
 	icon = 'icons/turf/walls.dmi'
-	icon_state = "0"
+	icon_state = "15"
 	New()
 		spawn(1)
 			update_icon()

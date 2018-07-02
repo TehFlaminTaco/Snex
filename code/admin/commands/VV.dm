@@ -4,13 +4,15 @@
 	return "<h3>[src.type]\ref[src]</h3>"
 
 /proc/get_vv_header_list(var/list/L)
-	return "<h3>list([L.len])</h3>"
+	return "<h3>list()</h3>"
 
 /atom/get_vv_header()
 	return "<h3>\icon[src][name] [src.type]\ref[src] </h3>"
 
 /client/proc/get_vv_header()
 	return "<h3>[ckey]</h3>"
+
+/client/var/marked
 
 /client/proc/vv_escape(var/V)
 	if(V=="null")
@@ -41,11 +43,20 @@
 	set category = "Debug"
 	view_variables(C)
 
+/client/proc/make_actions(var/A,var/name)
+	var/s = ""
+	s += "<a href='?src=\ref[src];action=EDIT;tar=\ref[A];name=\ref[name]'>\[E]</a> <a href='?src=\ref[src];action=CHANGE;tar=\ref[A];name=\ref[name]'>\[C]</a>"
+	return s
+
 /client/proc/view_variables(var/A in world)
 	set name = "View Variables"
 	set category = "Debug"
 
 	var/html = "<a href='?src=\ref[src];action=VV;tar=\ref[A]'>Refresh</a><br>"
+	if(marked == A)
+		html += "<font color=red>Marked</font><br>"
+	else
+		html += "<a href='?src=\ref[src];action=MARK;tar=\ref[A]'>Mark as Active Object</a><br>"
 
 	var/list/vars
 	if(istype(A,/datum)||istype(A,/client))
@@ -54,14 +65,14 @@
 		vars = D.vars
 	else
 		var/list/L = A
-		html += "[get_vv_header_list(L)]<br>"
+		html += "[get_vv_header_list(A)]<br>"
 		vars = L
 
 	html += "<table>"
-	html += "<tr><th>var</th><th>value</th></tr>"
+	html += "<tr><th>actions</th><th>var</th><th>value</th></tr>"
 
 	for(var/name in get_vv_sorted_list(vars))
-		html += "<tr><td>[vv_escape(name)]</td><td>[vv_escape(vars[name])]</td></td>"
+		html += "<tr><td>[make_actions(A,name)]</td><td>[vv_escape(name)]</td><td>[vv_escape(vars[name])]</td></td>"
 
 	usr << browse(html,"window=variables")
 
@@ -71,3 +82,17 @@
 			var/D = locate(href_list["tar"])
 			view_variables(D)
 			return
+		if("EDIT")
+			var/D = locate(href_list["tar"])
+			var/N = locate(href_list["name"])
+			modify_variable(D,N,1)
+			view_variables(D)
+		if("CHANGE")
+			var/D = locate(href_list["tar"])
+			var/N = locate(href_list["name"])
+			modify_variable(D,N,0)
+			view_variables(D)
+		if("MARK")
+			var/D = locate(href_list["tar"])
+			marked = D
+			view_variables(D)

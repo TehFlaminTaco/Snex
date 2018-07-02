@@ -1,74 +1,79 @@
 "a" = (/turf/background,/area)
 "b" = (/turf/wall,/area)
-"d" = (/obj/powered/gate/xor,/turf/wall,/area)
+"c" = (/obj/powered/gate/not,/turf/wall,/area)
+"d" = (/obj/spawn_point,/turf/background,/area)
 "e" = (/turf/climable/convey{dir = 8; name = "WEST"},/area)
-"f" = (/turf/climable/convey{dir = 1; name = "NORTH"},/area)
-"g" = (/turf/climable,/area)
+"f" = (/obj/powered/gate/not{dir = 8},/turf/wall,/area)
+"g" = (/obj/powered/elevator{dir = 1; max_length = 16},/turf/background,/area)
 "h" = (/turf/climable/convey,/area)
 "i" = (/obj/pellet,/turf/background,/area)
 "j" = (/turf/wormulator,/area)
-"k" = (/obj/spawn_point,/turf/background,/area)
+"k" = (/obj/powered/button_once{dir = 1},/turf/background,/area)
 "l" = (/obj/powered/button,/turf/background,/area)
 "m" = (/obj/powered/wire_exploder,/turf/wall,/area)
-"n" = (/mob/sausage/head,/turf/background,/area)
+"n" = (/obj/powered/elevator{dir = 8},/turf/background,/area)
 "o" = (/obj/powered/elevator{dir = 4},/turf/background,/area)
 "p" = (/obj/cube,/turf/background,/area)
+"q" = (/obj/powered/elevator{dir = 1},/turf/background,/area)
+"r" = (/obj/powered/button_once{dir = 8},/turf/background,/area)
+"s" = (/obj/powered/gate/not{dir = 4},/turf/wall,/area)
+"t" = (/obj/powered/gate/or,/turf/wall,/area)
 
 (1,1,1) = {"
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbaaaaaaaaaaaaaaaabbbbbb
-bbbbbbbaaaaaaaaaaaaaaaabbbbbb
-bbbbbbbaaaaaaaaaaaaaaaabbbbbb
-bbbbbbbapaakkkkkkkkaaaabbbbbb
-bbbbbbbaaaakkkkkkkkanaabbbbbb
-bbbbbbbaaaakkkkkkkknanabbbbbb
-bbbbbbbaaiakkkkkkkkaaaabbbbbb
-bbbbbbbaaaikkkkkkkkaaaabbbbbb
-bbbbbbbaaiakkkkkkkkaaaabbbbbb
-bbbbbbbalaikkkkkkkkaalabbbbbb
-bbbbbbbbmbbbbbbbbbbbbmbbbbbbb
-bbbbbbbbdmmmmmmmmmmmmmbbbbbbb
-bbbbbbmmmbbbbbbbbbbbbbbbbbbbb
-bbbbbbmbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbmoaaaaaaaaaaaaaaabbbbbb
-bbbbbbmoaaaaaapaaaaaaaabbbbbb
-bbbbbbmoaaaaaanaaaaaaaabbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+mmbbbbbbbbbbbbbbbbbbbbbbbbbbb
+okaaaaaaaaaaaaaaaaaaaabbbbbbb
+babbbbbbbbbbbbbbbbbbbabbbbbbb
+babbbbbbbbbbbbbbbbbbbabbbbbbb
+babbbbbbbbbbbbbbbbbbbabbbbbbb
+babbbbbbbbbbbbbbbbbbbabbbbbbb
+babbbbbbbbbbbbbbbbbbbabbbbbbb
+babbbbbbbbbbbbbbbbbbbabbbbbbb
+babbbbbbbbbbbbbbbbbbbabbbbbbb
+babbbbbbbbbbbbbbbbbbbabbbbbbb
+babaaaaaaaaaaaaaaaaaaaabaaaab
+babaaaaaaaaaaaaaaaaaaaabaaaab
+babaaaaaaaaaaaaaaaaaaaabaaaab
+babaaaaaaaaaaaaaaaaaaaabaaaab
+babaaaaaaaaaaaaaaaaaaaabaaaab
+babaaaaaaaaaaaaaaaaaaaabaaaab
+babaaaaaaaaaaaaaaaaaaaabaaaab
+babaaaaaaaaaaaaaaaaaaaaaaaaab
+babaaaaaaaaaaaaaaaaaaaaaaaaab
+babaaadaaiiialpaalpaalaajjjjb
+babbbbbbbbbbbmbbbmbbbmbqbbbbb
+babbbbbbbbbbbcbbbcbbbcbmbbbbb
+babbbbbbbbbbbmbbbmbbbmbmbbbbb
+babbbbbbbbbbbmmmmcmmmmbmbbbbb
+babbbbbbbbbbbbbbbmbbbbbmbbbbb
+babbbbbbbbbbbbbbbmsmmmmmbbbbb
+babbbbbbbbbbbbmmmtbbbbbbbbbbb
+mraaaaaaaaaaaakapnbbbbbbbbbbb
+mqbbbbbbbbbbbbbbbbbbbbbbbbbbb
 "}
 
 (1,1,2) = {"
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-baaaaaaaaaaaaaaagaagaajjjjjjb
-baaagaaagaaaghaahaahabbbbbbbb
-baaaaaaaaaaaaagaaaaaabbbbbbbb
+baaaaaaaaaaaaaaaaaaaaajjjjjjb
 baaaaaaaaaaaaaaaaaaaabbbbbbbb
 baaaaaaaaaaaaaaaaaaaabbbbbbbb
-bbaaaaaaaaaaaaaaaaaaabbbbbbbb
-baaaaaaaaaaaaaaaaaaaabbbbbbbb
-baaaaaaaaaaaaaaaaaaaabbbbbbbb
-baaaaaaaaaaaaaaaaaaaabbbbbbbb
-bbaaaaaaaaaaaaaaaaaaabbbbbbbb
-baaaaaaaaaaaaaaaaaaaabbbbbbbb
-baaaaaaaaaaaaaaaaaaaabbbbbbbb
-baaaaaaaaaaaaaaaaaaaabbbbbbbb
-bbaaaaaaaaaaaaaaaaaaabbbbbbbb
-baaaaaaaaaaaaaaaaaaaabbbbbbbb
-baaaaaaaaaaaaaaaaaaaabbbbbbbb
-baaaaaaaaaaaaaaaaaaaaeeeeeeeb
-bbaaaaaaaaaaaaaaaaaaabbbbbbfb
-olaaaaaaaaaaaaaaaaaaabaaaaaab
-mmbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+baaaabbbbbbbbbbbbbbbbbbbbbbbb
+baaaabaaaaaaaaaaaaaaabbbbbbbb
+baaaabaaaaaaaaaaaaaaabbbbbbbb
+baaaabaaaaaaaaaaaaaaabbbbbbbb
+baaaabaaaaaaaaaaaaaaabbbbbbbb
+baaaabaaaaaaaaaaaaaaabbbbbbbb
+baaaabaaaaaaaaaaaaaaabbbbbbbb
+baaaabaaaaaaaaaaaaaaabbbbbbbb
+baaaabaaaaaaaaaaaaaaabbbbbbbb
+baaaabaaaaaaaaaaaaaaabbbbbbbb
+baaaabaaaaaaaaaaaaaaabbbbbbbb
+baaaabaaaaaaaaaaaaaaabbbbbbbb
+baaaabaaaaaaaaaaaaaaabbbbbbbb
+baaaabaaaaaaaaaaaaaaaaaaaaaab
+baaaabaaaaaaaaaaaaaaabbbbbbab
+baaaaalaaaaaaaaaaaaaabbbaaaab
+bggggbmbbbbbbbbbbbbbbbbbbbbbb
+bmmmmmfbbbbbbbbbbbbbbbbbbbbbb
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
